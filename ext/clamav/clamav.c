@@ -30,8 +30,12 @@ static VALUE clamavr_new(VALUE klass) {
     struct ClamAV_R *ptr;
     int ret;
 
+    static struct cl_scan_options options;
+    memset(&options, 0, sizeof(struct cl_scan_options));
+    options.parse |= ~0; /* enable all parsers */
+
     VALUE v_options;
-    v_options = INT2FIX(CL_SCAN_STDOPT); /* default value */
+    v_options = INT2FIX(&options); /* default value */
 
     ret = cl_init(FIX2INT(v_options));
     if(ret != CL_SUCCESS) {

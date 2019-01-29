@@ -58,29 +58,29 @@
     rb_define_const(cClamAV, "CL_DB_STDOPT", INT2FIX(CL_DB_STDOPT));
 
     /* scan options */
-    rb_define_const(cClamAV, "CL_SCAN_RAW", INT2FIX(CL_SCAN_RAW));
-    rb_define_const(cClamAV, "CL_SCAN_ARCHIVE", INT2FIX(CL_SCAN_ARCHIVE));
-    rb_define_const(cClamAV, "CL_SCAN_MAIL", INT2FIX(CL_SCAN_MAIL));
-    rb_define_const(cClamAV, "CL_SCAN_OLE2", INT2FIX(CL_SCAN_OLE2));
-    rb_define_const(cClamAV, "CL_SCAN_BLOCKENCRYPTED", INT2FIX(CL_SCAN_BLOCKENCRYPTED));
-    rb_define_const(cClamAV, "CL_SCAN_HTML", INT2FIX(CL_SCAN_HTML));
-    rb_define_const(cClamAV, "CL_SCAN_PE", INT2FIX(CL_SCAN_PE));
-    rb_define_const(cClamAV, "CL_SCAN_BLOCKBROKEN", INT2FIX(CL_SCAN_BLOCKBROKEN));
-    rb_define_const(cClamAV, "CL_SCAN_MAILURL", INT2FIX(CL_SCAN_MAILURL)); /*  ignored  */
-    rb_define_const(cClamAV, "CL_SCAN_BLOCKMAX", INT2FIX(CL_SCAN_BLOCKMAX)); /*  ignored  */
-    rb_define_const(cClamAV, "CL_SCAN_ALGORITHMIC", INT2FIX(CL_SCAN_ALGORITHMIC));
-    rb_define_const(cClamAV, "CL_SCAN_PHISHING_BLOCKSSL", INT2FIX(CL_SCAN_PHISHING_BLOCKSSL)); /*  ssl mismatches, not ssl by itself */
-    rb_define_const(cClamAV, "CL_SCAN_PHISHING_BLOCKCLOAK", INT2FIX(CL_SCAN_PHISHING_BLOCKCLOAK));
-    rb_define_const(cClamAV, "CL_SCAN_ELF", INT2FIX(CL_SCAN_ELF));
-    rb_define_const(cClamAV, "CL_SCAN_PDF", INT2FIX(CL_SCAN_PDF));
-    rb_define_const(cClamAV, "CL_SCAN_STRUCTURED", INT2FIX(CL_SCAN_STRUCTURED));
-    rb_define_const(cClamAV, "CL_SCAN_STRUCTURED_SSN_NORMAL", INT2FIX(CL_SCAN_STRUCTURED_SSN_NORMAL));
-    rb_define_const(cClamAV, "CL_SCAN_STRUCTURED_SSN_STRIPPED", INT2FIX(CL_SCAN_STRUCTURED_SSN_STRIPPED));
-    rb_define_const(cClamAV, "CL_SCAN_PARTIAL_MESSAGE", INT2FIX(CL_SCAN_PARTIAL_MESSAGE));
-    rb_define_const(cClamAV, "CL_SCAN_HEURISTIC_PRECEDENCE", INT2FIX(CL_SCAN_HEURISTIC_PRECEDENCE));
+//   rb_define_const(cClamAV, "CL_SCAN_RAW", INT2FIX(CL_SCAN_RAW));
+    rb_define_const(cClamAV, "CL_SCAN_ARCHIVE", INT2FIX(CL_SCAN_PARSE_ARCHIVE));
+    rb_define_const(cClamAV, "CL_SCAN_MAIL", INT2FIX(CL_SCAN_PARSE_MAIL));
+    rb_define_const(cClamAV, "CL_SCAN_OLE2", INT2FIX(CL_SCAN_PARSE_OLE2));
+//   rb_define_const(cClamAV, "CL_SCAN_BLOCKENCRYPTED", INT2FIX(CL_SCAN_HEURISTIC_ENCRYPTED));
+    rb_define_const(cClamAV, "CL_SCAN_HTML", INT2FIX(CL_SCAN_PARSE_HTML));
+    rb_define_const(cClamAV, "CL_SCAN_PE", INT2FIX(CL_SCAN_PARSE_PE));
+    rb_define_const(cClamAV, "CL_SCAN_BLOCKBROKEN", INT2FIX(CL_SCAN_HEURISTIC_BROKEN));
+//   rb_define_const(cClamAV, "CL_SCAN_MAILURL", INT2FIX(CL_SCAN_MAILURL)); /*  ignored  */
+    rb_define_const(cClamAV, "CL_SCAN_BLOCKMAX", INT2FIX(CL_SCAN_HEURISTIC_EXCEEDS_MAX)); /*  ignored  */
+    rb_define_const(cClamAV, "CL_SCAN_ALGORITHMIC", INT2FIX(CL_SCAN_GENERAL_HEURISTICS));
+    rb_define_const(cClamAV, "CL_SCAN_PHISHING_BLOCKSSL", INT2FIX(CL_SCAN_HEURISTIC_PHISHING_SSL_MISMATCH)); /*  ssl mismatches, not ssl by itself */
+    rb_define_const(cClamAV, "CL_SCAN_PHISHING_BLOCKCLOAK", INT2FIX(CL_SCAN_HEURISTIC_PHISHING_CLOAK));
+    rb_define_const(cClamAV, "CL_SCAN_ELF", INT2FIX(CL_SCAN_PARSE_ELF));
+    rb_define_const(cClamAV, "CL_SCAN_PDF", INT2FIX(CL_SCAN_PARSE_PDF));
+    rb_define_const(cClamAV, "CL_SCAN_STRUCTURED", INT2FIX(CL_SCAN_HEURISTIC_STRUCTURED));
+    rb_define_const(cClamAV, "CL_SCAN_STRUCTURED_SSN_NORMAL", INT2FIX(CL_SCAN_HEURISTIC_STRUCTURED_SSN_NORMAL));
+    rb_define_const(cClamAV, "CL_SCAN_STRUCTURED_SSN_STRIPPED", INT2FIX(CL_SCAN_HEURISTIC_STRUCTURED_SSN_STRIPPED));
+    rb_define_const(cClamAV, "CL_SCAN_PARTIAL_MESSAGE", INT2FIX(CL_SCAN_MAIL_PARTIAL_MESSAGE));
+    rb_define_const(cClamAV, "CL_SCAN_HEURISTIC_PRECEDENCE", INT2FIX(CL_SCAN_GENERAL_HEURISTIC_PRECEDENCE));
 
     /* recommended scan settings */
-    rb_define_const(cClamAV, "CL_SCAN_STDOPT", INT2FIX(CL_SCAN_STDOPT));
+//  rb_define_const(cClamAV, "CL_SCAN_STDOPT", INT2FIX(CL_SCAN_STDOPT));
 
     /* cl_countsigs options */
 #ifdef CL_COUNTSIGS_OFFICIAL
